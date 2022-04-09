@@ -1,0 +1,11 @@
+{
+	"files": [
+		"index.ts"
+	],
+  "compilerOptions": {
+	"module": "es6",
+    "target": "es5",
+	"moduleResolution": "node",
+    "skipLibCheck": true
+  }
+}
