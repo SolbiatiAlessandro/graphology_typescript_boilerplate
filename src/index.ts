@@ -1,5 +1,7 @@
 import {GGraph} from './ggraph';
 
+import Sigma from "sigma";
+
 const container = document.getElementById("sigma-container") as HTMLElement;
 
 const graph = new GGraph();
@@ -15,3 +17,5 @@ console.log(graph.size); //edges
 graph.forEachNode(node => {
 	console.log(node);
 })
+
+const renderer = new Sigma(graph, container);

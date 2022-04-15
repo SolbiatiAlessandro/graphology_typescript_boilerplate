@@ -1,4 +1,5 @@
 import { GGraph } from './ggraph';
+import Sigma from "sigma";
 var container = document.getElementById("sigma-container");
 var graph = new GGraph();
 graph.addNode("John", { x: 0, y: 10, size: 5, label: "John", color: "blue" });
@@ -9,3 +10,4 @@ console.log(graph.size); //edges
 graph.forEachNode(function (node) {
     console.log(node);
 });
+var renderer = new Sigma(graph, container);
