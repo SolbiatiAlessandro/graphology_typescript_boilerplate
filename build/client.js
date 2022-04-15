@@ -8,5 +8,7 @@ jQuery.ajax({
         var graph = GraphBuilder.createGraph(graphData);
         var container = document.getElementById("sigma-container");
         var renderer = new Sigma(graph, container);
+        console.log(graph.order);
+        console.log(graph.size);
     }
 });

@@ -1,6 +1,6 @@
-## Client (visualisation)
-node ./node_modules/kotatsu/cli.js serve --typescript src/client.ts --public / ./public
-
 ## Server (editing)
-npx tsc
-node ./build/server.js
+npm run server
+
+## Client (visualisation, needs server running)
+npm run client
+

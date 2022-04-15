@@ -15,5 +15,10 @@
     "fs": false,
     "path": false,
     "os": false
-  }
+  },
+	"scripts": {
+		"server": "npx tsc && node ./build/server.js",
+		"client": "node ./node_modules/kotatsu/cli.js serve --typescript src/client.ts --public / ./public"
+	}
+
 }
