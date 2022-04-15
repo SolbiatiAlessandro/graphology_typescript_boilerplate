@@ -1,6 +1,6 @@
-import Graph from 'graphology';
+import GraphologyGraph from 'graphology';
 
-export class GGraph extends Graph {
+export class Graph extends GraphologyGraph {
 	public PUBLIC: boolean = true;
 
 	constructor(){

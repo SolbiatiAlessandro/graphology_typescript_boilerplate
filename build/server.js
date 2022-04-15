@@ -1,5 +1,5 @@
-import { GGraph } from './ggraph.js';
-var graph = new GGraph();
+import { Graph } from './graph.js';
+var graph = new Graph();
 import express from "express";
 var app = express();
 var port = 8080; // default port to listen

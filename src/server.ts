@@ -1,5 +1,5 @@
-import {GGraph} from './ggraph.js';
-const graph = new GGraph();
+import {Graph} from './graph.js';
+const graph = new Graph();
 
 import express from "express";
 const app = express();
