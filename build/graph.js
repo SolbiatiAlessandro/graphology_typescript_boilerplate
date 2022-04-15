@@ -14,16 +14,31 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import GraphologyGraph from 'graphology';
+import * as gexf from 'graphology-gexf';
+import * as fs from 'fs';
 var Graph = /** @class */ (function (_super) {
     __extends(Graph, _super);
     function Graph() {
-        var _this = _super.call(this) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.PUBLIC = true;
-        _this.addNode("John", { x: 0, y: 10, size: 5, label: "John", color: "blue" });
-        _this.addNode("Mary", { x: 10, y: 0, size: 3, label: "Mary", color: "red" });
-        _this.addEdge('John', 'Mary');
         return _this;
     }
+    Graph.prototype.addExampleNode = function () {
+        this.addNode("John3", { x: 0, y: 10, size: 5, label: "John2", color: "blue" });
+        this.addEdge('John', 'John3');
+        this.save();
+    };
+    Graph.prototype.save = function () {
+        fs.writeFileSync(Graph.PATH, gexf.write(this));
+    };
+    Graph.load = function () {
+        return fs.readFileSync(this.PATH, { 'encoding': 'utf8' });
+    };
+    Graph.PATH = './data/graph.gexf';
     return Graph;
 }(GraphologyGraph));
 export { Graph };
+export function createGraph() {
+    // @ts-ignore
+    return gexf.parse(Graph, Graph.load());
+}

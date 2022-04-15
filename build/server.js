@@ -1,13 +1,15 @@
-import { Graph } from './graph.js';
-var graph = new Graph();
+import { createGraph } from './graph.js';
+var graph = createGraph();
 import express from "express";
 var app = express();
 var port = 8080; // default port to listen
-// define a route handler for the default home page
 app.get("/", function (req, res) {
     res.send("graph order is ".concat(graph.order));
 });
-// start the Express server
+app.get("/test", function (req, res) {
+    graph.addExampleNode();
+    res.send(200);
+});
 app.listen(port, function () {
     console.log("server started at http://localhost:".concat(port));
 });
