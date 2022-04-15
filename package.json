@@ -2,6 +2,7 @@
   "type": "module",
   "dependencies": {
     "common": "^0.2.5",
+    "express": "^4.17.3",
     "graphology": "^0.23.2",
     "kotatsu": "^0.22.3",
     "sigma": "^2.2.0",
