@@ -17,8 +17,11 @@ import Graph from 'graphology';
 var GGraph = /** @class */ (function (_super) {
     __extends(GGraph, _super);
     function GGraph() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super.call(this) || this;
         _this.PUBLIC = true;
+        _this.addNode("John", { x: 0, y: 10, size: 5, label: "John", color: "blue" });
+        _this.addNode("Mary", { x: 10, y: 0, size: 3, label: "Mary", color: "red" });
+        _this.addEdge('John', 'Mary');
         return _this;
     }
     return GGraph;
