@@ -1,5 +1,5 @@
-import { Graph } from './graph';
+import { createGraph } from './graph';
 import Sigma from "sigma";
 var container = document.getElementById("sigma-container");
-var graph = new Graph();
+var graph = createGraph();
 var renderer = new Sigma(graph, container);

@@ -1,7 +1,6 @@
-## Front End
-npm install kotatsu
-node ./node_modules/kotatsu/cli.js serve --typescript src/index.ts --public / ./public
+## Client (visualisation)
+node ./node_modules/kotatsu/cli.js serve --typescript src/client.ts --public / ./public
 
-## Back End
+## Server (editing)
 npx tsc
 node ./build/server.js

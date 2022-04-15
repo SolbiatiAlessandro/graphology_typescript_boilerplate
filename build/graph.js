@@ -26,19 +26,27 @@ var Graph = /** @class */ (function (_super) {
     Graph.prototype.addExampleNode = function () {
         this.addNode("John3", { x: 0, y: 10, size: 5, label: "John2", color: "blue" });
         this.addEdge('John', 'John3');
-        this.save();
+        GraphBuilder.save(this);
     };
-    Graph.prototype.save = function () {
-        fs.writeFileSync(Graph.PATH, gexf.write(this));
-    };
-    Graph.load = function () {
-        return fs.readFileSync(this.PATH, { 'encoding': 'utf8' });
-    };
-    Graph.PATH = './data/graph.gexf';
     return Graph;
 }(GraphologyGraph));
 export { Graph };
-export function createGraph() {
-    // @ts-ignore
-    return gexf.parse(Graph, Graph.load());
-}
+var GraphBuilder = /** @class */ (function () {
+    function GraphBuilder() {
+    }
+    // no-browser
+    GraphBuilder.loadGraphData = function () {
+        return fs.readFileSync(GraphBuilder.PATH, { 'encoding': 'utf8' });
+    };
+    GraphBuilder.createGraph = function (graphData) {
+        // @ts-ignore
+        return gexf.parse(Graph, graphData);
+    };
+    // no-browser
+    GraphBuilder.save = function (graph) {
+        fs.writeFileSync(GraphBuilder.PATH, gexf.write(graph));
+    };
+    GraphBuilder.PATH = './data/graph.gexf';
+    return GraphBuilder;
+}());
+export { GraphBuilder };
